@@ -28,7 +28,7 @@ function LBCClient(key, secret, opt) {
                 'dashboard/canceled/seller', 'dashboard/closed/seller'
             ],
             get: [
-                'contact_info/', 'recent_messages', 'notifications'
+                'contact_info/', 'recent_messages', 'notifications', 'ad-get', 'ad-get/'
             ],
             post: [
                 'contact_message_post/', 'contact_create/', 'contact_cancel/'
