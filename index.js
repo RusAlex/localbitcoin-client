@@ -28,10 +28,11 @@ function LBCClient(key, secret, opt) {
                 'dashboard/canceled/seller', 'dashboard/closed/seller'
             ],
             get: [
-                'contact_info/', 'recent_messages', 'notifications', 'ad-get', 'ad-get/'
+                'contact_info/', 'recent_messages', 'notifications'
             ],
             post: [
-                'contact_message_post/', 'contact_create/', 'contact_cancel/'
+              'contact_message_post/', 'contact_create/', 'ad-equation/',
+              'contact_cancel/', 'contact_release/', 'contact_mark_as_paid/'
             ]
         };
         var methods = (opt && opt.methods) || defaultMethods;
