@@ -44,7 +44,7 @@ function LBCClient(key, secret, opt) {
         "ad-get/"
       ],
       post: [
-        "ads/",
+        "ad/",
         "contact_message_post/",
         "contact_create/",
         "ad-equation/",
