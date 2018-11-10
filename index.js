@@ -25,7 +25,6 @@ function LBCClient(key, secret, opt) {
       private: [
         "ad-get",
         "myself",
-        "ads/ad/",
         "dashboard",
         "dashboard/released",
         "dashboard/canceled",
@@ -45,6 +44,7 @@ function LBCClient(key, secret, opt) {
         "ad-get/"
       ],
       post: [
+        "ads/",
         "contact_message_post/",
         "contact_create/",
         "ad-equation/",
@@ -67,6 +67,7 @@ function LBCClient(key, secret, opt) {
       return privateMethod("GET", method, params, callback);
     } else if (methods.post && methods.post.indexOf(method) !== -1) {
       method = method + params.post_url;
+      delete params.post_url;
       return privateMethod("POST", method, params, callback);
     } else {
       throw new Error(method + " is not a valid API method.");
