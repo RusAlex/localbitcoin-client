@@ -25,6 +25,7 @@ function LBCClient(key, secret, opt) {
       private: [
         "ad-get",
         "myself",
+        "ads/ad/",
         "dashboard",
         "dashboard/released",
         "dashboard/canceled",
