@@ -49,6 +49,7 @@ function LBCClient(key, secret, opt) {
         "contact_create/",
         "ad-equation/",
         "contact_cancel/",
+        "contact_dispute/",
         "contact_release/",
         "contact_mark_as_paid/"
       ]
