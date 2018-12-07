@@ -34,7 +34,8 @@ function LBCClient(key, secret, opt) {
         "dashboard/closed/buyer",
         "dashboard/released/seller",
         "dashboard/canceled/seller",
-        "dashboard/closed/seller"
+        "dashboard/closed/seller",
+        "wallet-send"
       ],
       get: [
         "contact_info/",
@@ -51,8 +52,7 @@ function LBCClient(key, secret, opt) {
         "contact_cancel/",
         "contact_dispute/",
         "contact_release/",
-        "contact_mark_as_paid/",
-        "wallet-send"
+        "contact_mark_as_paid/"
       ]
     };
     var methods = (opt && opt.methods) || defaultMethods;
