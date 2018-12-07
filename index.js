@@ -51,7 +51,8 @@ function LBCClient(key, secret, opt) {
         "contact_cancel/",
         "contact_dispute/",
         "contact_release/",
-        "contact_mark_as_paid/"
+        "contact_mark_as_paid/",
+        "wallet-send"
       ]
     };
     var methods = (opt && opt.methods) || defaultMethods;
