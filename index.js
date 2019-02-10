@@ -102,8 +102,12 @@ function LBCClient(key, secret, opt) {
   function privateMethod(postMethod, method, params, callback) {
     params = params || {};
 
-    var path = "/" + method;
+    var path = "/" + method + "/";
     var url = config.url + path;
+    if (postMethod === "GET") {
+      url = config.url + path + "?" + querystring.stringify(params);
+    }
+
     var nonce = new Date().getTime();
     var signature = getMessageSignature(path, params, nonce);
 
@@ -113,7 +117,6 @@ function LBCClient(key, secret, opt) {
       "Apiauth-Nonce": nonce,
       "Apiauth-Signature": signature
     };
-    // console.log(url, headers, params)
     return rawRequest(postMethod, url, headers, params, callback);
   }
 
@@ -126,7 +129,7 @@ function LBCClient(key, secret, opt) {
    */
   function getMessageSignature(path, params, nonce) {
     var postParameters = querystring.stringify(params);
-    var path = "/api" + path + "/";
+    var path = "/api" + path;
     var message = nonce + config.key + path + postParameters;
     var auth_hash = crypto
       .createHmac("sha256", config.secret)
@@ -146,7 +149,7 @@ function LBCClient(key, secret, opt) {
    */
   function rawRequest(method, url, headers, params, callback) {
     var options = {
-      url: url + "/",
+      url: url,
       headers: headers,
       form: params,
       method: method
