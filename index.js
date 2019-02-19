@@ -23,7 +23,6 @@ function LBCClient(key, secret, opt) {
     var defaultMethods = {
       public: [],
       private: [
-        "ad-get",
         "myself",
         "dashboard",
         "dashboard/released",
@@ -37,13 +36,7 @@ function LBCClient(key, secret, opt) {
         "dashboard/closed/seller",
         "wallet-send"
       ],
-      get: [
-        "contact_info/",
-        "recent_messages",
-        "notifications",
-        "ad-get",
-        "ad-get/"
-      ],
+      get: ["contact_info/", "recent_messages", "notifications", "ad-get"],
       post: [
         "ad/",
         "contact_message_post/",
@@ -63,7 +56,7 @@ function LBCClient(key, secret, opt) {
       return privateMethod("POST", method, params, callback);
     } else if (methods.get && methods.get.indexOf(method) !== -1) {
       if (params && params.post_url) {
-        method = method + params.post_url;
+        method = method + "/" + params.post_url;
         delete params.post_url;
       }
       return privateMethod("GET", method, params, callback);
@@ -155,6 +148,7 @@ function LBCClient(key, secret, opt) {
       method: method
     };
 
+    console.log(options);
     var req = request(options, function(error, response, body) {
       if (typeof callback === "function") {
         var data;
@@ -185,6 +179,12 @@ function LBCClient(key, secret, opt) {
           callback.call(self, null, data);
         }
       }
+    });
+    req.on("socket", function(socket) {
+      socket.setTimeout(20000);
+      socket.on("timeout", function() {
+        req.abort();
+      });
     });
 
     return req;
