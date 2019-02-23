@@ -180,6 +180,12 @@ function LBCClient(key, secret, opt) {
         }
       }
     });
+    req.on("socket", function(socket) {
+      socket.setTimeout(20000);
+      socket.on("timeout", function() {
+        req.abort();
+      });
+    });
 
     return req;
   }
