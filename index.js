@@ -36,7 +36,13 @@ function LBCClient(key, secret, opt) {
         "dashboard/closed/seller",
         "wallet-send"
       ],
-      get: ["contact_info/", "recent_messages", "notifications", "ad-get"],
+      get: [
+        "contact_info/",
+        "recent_messages",
+        "notifications",
+        "ad-get",
+        "dashboard"
+      ],
       post: [
         "ad/",
         "contact_message_post/",
