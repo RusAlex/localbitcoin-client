@@ -181,6 +181,14 @@ function LBCClient(key, secret, opt) {
       }
     });
 
+    req.on("socket", function(socket) {
+      socket.setTimeout(60000);
+      socket.on("timeout", function() {
+        console.log("aborting");
+        req.abort();
+      });
+    });
+
     return req;
   }
 
