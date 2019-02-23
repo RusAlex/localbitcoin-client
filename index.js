@@ -22,8 +22,13 @@ function LBCClient(key, secret, opt) {
   function api(method, params, callback) {
     var defaultMethods = {
       public: [],
-      private: [
-        "myself",
+      private: ["myself", "wallet-send"],
+      get: [
+        "contact_info/",
+        "recent_messages",
+        "notifications",
+        "ad-get",
+        "dashboard",
         "dashboard",
         "dashboard/released",
         "dashboard/canceled",
@@ -33,15 +38,7 @@ function LBCClient(key, secret, opt) {
         "dashboard/closed/buyer",
         "dashboard/released/seller",
         "dashboard/canceled/seller",
-        "dashboard/closed/seller",
-        "wallet-send"
-      ],
-      get: [
-        "contact_info/",
-        "recent_messages",
-        "notifications",
-        "ad-get",
-        "dashboard"
+        "dashboard/closed/seller"
       ],
       post: [
         "ad/",
