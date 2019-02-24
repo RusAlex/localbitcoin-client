@@ -9,7 +9,7 @@ function LBCClient(key, secret, opt) {
     key: key,
     secret: secret,
     opt: opt,
-    timeoutMS: 5000
+    timeout: 60000
   };
 
   /**
@@ -182,14 +182,6 @@ function LBCClient(key, secret, opt) {
           callback.call(self, null, data);
         }
       }
-    });
-
-    req.on("socket", function(socket) {
-      socket.setTimeout(60000);
-      socket.on("timeout", function() {
-        console.log("aborting");
-        req.abort();
-      });
     });
 
     return req;
