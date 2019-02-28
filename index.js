@@ -1,5 +1,4 @@
 var request = require("request");
-var crypto = require("crypto");
 var querystring = require("querystring");
 
 function LBCClient(key, secret, opt) {
@@ -24,7 +23,7 @@ function LBCClient(key, secret, opt) {
       public: [],
       private: ["myself", "wallet-send"],
       get: [
-        "contact_info/",
+        "contact_info",
         "recent_messages",
         "notifications",
         "ad-get",
