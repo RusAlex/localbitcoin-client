@@ -1,3 +1,4 @@
+var crypto = require("crypto");
 var request = require("request");
 var querystring = require("querystring");
 
