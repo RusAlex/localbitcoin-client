@@ -23,9 +23,7 @@
   },
   "homepage": "https://github.com/vatseek/localbitcoin-client#readme",
   "dependencies": {
-    "crypto": "0.0.3",
-    "querystring": "^0.2.0",
-    "request": "^2.79.0"
+    "querystring": "^0.2.0"
   },
   "engines": {
     "node": ">=0.12"
